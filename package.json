@@ -4,6 +4,10 @@
   "description": "Secure visual editor for .env files that masks sensitive secrets while allowing easy editing",
   "version": "0.0.14",
   "publisher": "xinbenlv",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xinbenlv/dotenv-mask-editor.git"
+  },
   "engines": {
     "vscode": "^1.75.0"
   },
