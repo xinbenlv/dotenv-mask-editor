@@ -1,40 +1,56 @@
-# Env Secret Masking VS Code Extension
+# Dotenv Mask Editor for VS Code and Cursor
 
-A minimalistic VS Code extension that provides a custom editor for `.env` files to reduce visual noise from long secret values.
+**Securely view and edit your `.env` files with automatic secret masking.**
 
-## Features
+**Dotenv Mask Editor** is a lightweight, secure VS Code extension that transforms your plain text `.env` files into a clean, interactive table editor. It automatically masks long secret values to prevent shoulder surfing and reduce visual noise during screen sharing or demos.
 
-- **Custom Editor** for `.env` and `.env.*` files
-- **Smart Masking**: Values with length < 6 are shown in plain text, values with length >= 6 are masked as `******`
-- **Editable**: Edit values directly in the table view, changes are written back to the file
-- **Configurable**: Add additional file patterns to match via settings
+![Dotenv Mask Editor Screenshot](images/screenshot.png) *(Add a screenshot here later)*
 
-## Usage
+## 🚀 Key Features
 
-1. Open any `.env` or `.env.*` file
-2. Right-click and select "Reopen Editor With..." → "Env Secret Masking Editor"
-3. View and edit your environment variables in a clean table format
-4. Long secrets are automatically masked as `******` for reduced visual clutter
+- **🛡️ Smart Masking**: Automatically hides sensitive values (API keys, passwords, tokens) with `******`.
+- **👁️ Click-to-Reveal**: Simply click any masked value to reveal and edit it instantly.
+- **✏️ Full Editing**: Edit both Keys and Values directly in the grid.
+- **🔒 Secure by Design**: Zero dependencies, no external requests. Your secrets never leave your local machine.
+- **⚡ Zero-Config**: Automatically works with `.env`, `.env.local`, `.env.production`, and `*.env` files.
+- **📋 Copy Friendly**: Quick copy-paste workflow for managing configuration.
 
-## Configuration
+## 🎯 Why Use Dotenv Mask Editor?
 
-Add additional file patterns in your VS Code settings:
+- **Privacy**: Stop accidentally exposing API keys during live streams, screen shares, or pair programming sessions.
+- **Clarity**: Clean up clutter in large configuration files by hiding long, distracting strings.
+- **Safety**: Prevent accidental modification of keys while browsing configurations.
+
+## 🛠️ Usage
+
+1.  Open any `.env` file (e.g., `.env`, `test.env`, `.env.local`).
+2.  The file automatically opens in the **Dotenv Mask Editor** view.
+3.  **Click** on a masked value (`******`) to reveal and edit it.
+4.  **Blur** (click away) to save changes and re-mask immediately.
+
+*(If a file opens as text, right-click the tab → "Reopen Editor With..." → "Dotenv Mask Editor")*
+
+## ⚙️ Configuration
+
+The extension works out of the box for standard env files. You can add custom file patterns in your settings:
 
 ```json
 {
-  "envSecretMasking.filePatterns": ["*.env.local", "env.config"]
+  "envSecretMasking.filePatterns": [
+    "*.config",
+    "secrets.properties"
+  ]
 }
 ```
 
-## Development
+## 📦 Installation
 
-```bash
-npm install
-npm run compile
-```
+Search for **"Dotenv Mask Editor"** in the VS Code Marketplace and click Install.
 
-Press `F5` in VS Code to launch the Extension Development Host.
+## 🤝 Contributing
 
-## License
+Found a bug or have a feature request? Issues and Pull Requests are welcome!
+
+## 📄 License
 
 MIT
