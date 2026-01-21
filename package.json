@@ -2,7 +2,7 @@
   "name": "dotenv-mask-editor",
   "displayName": "Dotenv Mask Editor",
   "description": "Secure visual editor for .env files that masks sensitive secrets while allowing easy editing",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "xinbenlv",
   "repository": {
     "type": "git",
