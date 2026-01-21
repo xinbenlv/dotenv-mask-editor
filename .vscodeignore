@@ -1,0 +1,13 @@
+.env
+test.env
+sample.env
+.gitignore
+*.vsix
+node_modules
+.vscode-test
+src/**
+*.map
+tsconfig.json
+USAGE.md
+readme.md
+README.md

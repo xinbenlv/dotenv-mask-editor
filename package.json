@@ -1,0 +1,75 @@
+{
+  "name": "dotenv-mask-editor",
+  "displayName": "Dotenv Mask Editor",
+  "description": "Secure visual editor for .env files that masks sensitive secrets while allowing easy editing",
+  "version": "0.0.14",
+  "publisher": "xinbenlv",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCustomEditor:envSecretMasking.envEditor"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "customEditors": [
+      {
+        "viewType": "envSecretMasking.envEditor",
+        "displayName": "Env Secret Masking Editor",
+        "selector": [
+          {
+            "filenamePattern": ".env"
+          },
+          {
+            "filenamePattern": ".env.*"
+          },
+          {
+            "filenamePattern": "*.env"
+          }
+        ],
+        "priority": "default"
+      }
+    ],
+    "configuration": {
+      "title": "Dotenv Mask Editor",
+      "properties": {
+        "envSecretMasking.filePatterns": {
+          "type": "array",
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "description": "Additional file glob patterns to match (in addition to .env and .env.*)"
+        }
+      }
+    },
+    "workbench.editorAssociations": [
+      {
+        "viewType": "envSecretMasking.envEditor",
+        "filenamePattern": ".env"
+      },
+      {
+        "viewType": "envSecretMasking.envEditor",
+        "filenamePattern": ".env.*"
+      },
+      {
+        "viewType": "envSecretMasking.envEditor",
+        "filenamePattern": "*.env"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/vscode": "^1.75.0",
+    "@vscode/vsce": "^3.7.1",
+    "typescript": "^5.0.0"
+  }
+}
