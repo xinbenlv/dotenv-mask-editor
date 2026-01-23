@@ -4,7 +4,7 @@ A visual editor for environment files with automatic secret masking.
 
 Dotenv Mask Editor provides a table-based interface for `.env` files. It is designed to reduce the accidental exposure of sensitive values by masking strings that meet a length threshold. All processing is done locally within your editor.
 
-<img width="756" height="756" alt="image" src="https://github.com/user-attachments/assets/6df08612-a006-4e45-961a-ceee950d849b" />
+![2026-01-22_20-01-13 (1)](https://github.com/user-attachments/assets/12a9d23e-a4f3-495a-be9f-a89d3e91f56f)
 
 ## Features
 
