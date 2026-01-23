@@ -55,6 +55,9 @@ export class EnvCustomEditorProvider implements vscode.CustomTextEditorProvider 
           case 'updateEntry':
             await this.updateEntry(document, message.lineIndex, message.newKey, message.newValue);
             return;
+          case 'updateComment':
+            await this.updateCommentLine(document, message.lineIndex, message.newLineText);
+            return;
         }
       }
     );
@@ -106,6 +109,35 @@ export class EnvCustomEditorProvider implements vscode.CustomTextEditorProvider 
 
     // Apply the edit
     edit.replace(document.uri, range, newLine);
+    await vscode.workspace.applyEdit(edit);
+  }
+
+  /**
+   * Update a comment line in the document
+   */
+  private async updateCommentLine(
+    document: vscode.TextDocument,
+    lineIndex: number,
+    newLineText: string
+  ): Promise<void> {
+    // Bounds check
+    if (lineIndex < 0 || lineIndex >= document.lineCount) {
+      return;
+    }
+
+    const edit = new vscode.WorkspaceEdit();
+
+    // Get the line range
+    const line = document.lineAt(lineIndex);
+    const range = new vscode.Range(
+      lineIndex,
+      0,
+      lineIndex,
+      line.text.length
+    );
+
+    // Apply the edit
+    edit.replace(document.uri, range, newLineText);
     await vscode.workspace.applyEdit(edit);
   }
 

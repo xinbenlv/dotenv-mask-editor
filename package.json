@@ -2,7 +2,7 @@
   "name": "dotenv-mask-editor",
   "displayName": "Dotenv Mask Editor",
   "description": "Secure visual editor for .env files that masks sensitive secrets while allowing easy editing",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "publisher": "xinbenlv",
   "keywords": [
     "dotenv",
@@ -82,7 +82,7 @@
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "release": "npm run compile && npx --yes @vscode/vsce package && cursor --install-extension dotenv-mask-editor-1.0.1.vsix --force"
+    "release": "npm run compile && npx --yes @vscode/vsce package && cursor --install-extension dotenv-mask-editor-1.1.0.vsix --force"
   },
   "devDependencies": {
     "@types/node": "^18.0.0",

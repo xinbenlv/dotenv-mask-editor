@@ -48,7 +48,22 @@
         tr.className = 'comment-row';
         const td = document.createElement('td');
         td.colSpan = 2;
-        td.textContent = row.key;
+
+        if (editingState && editingState.index === index && editingState.field === 'comment') {
+          // Edit Mode for comment
+          const input = document.createElement('input');
+          input.value = row.key;
+          setupCommentInput(input, index);
+          td.appendChild(input);
+        } else {
+          // Display Mode for comment
+          const div = document.createElement('div');
+          div.className = 'cell-content';
+          div.textContent = row.key;
+          div.onclick = () => startEditing(index, 'comment');
+          td.appendChild(div);
+        }
+
         tr.appendChild(td);
         tbody.appendChild(tr);
         return;
@@ -123,6 +138,39 @@
           } else if (e.key === 'Escape') {
               cancelEdit();
           }
+      });
+  }
+
+  function setupCommentInput(input, index) {
+      setTimeout(() => input.focus(), 0);
+
+      input.addEventListener('blur', () => {
+          saveCommentEdit(index, input.value);
+      });
+      input.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+              input.blur();
+          } else if (e.key === 'Escape') {
+              cancelEdit();
+          }
+      });
+  }
+
+  function saveCommentEdit(index, newLineText) {
+      const row = currentRows[index];
+      if (!row) return;
+
+      // Optimistic update: Update local data and re-render immediately
+      row.key = newLineText;
+      row.originalLine = newLineText;
+
+      editingState = null;
+      renderTable(currentRows);
+
+      vscode.postMessage({
+          type: 'updateComment',
+          lineIndex: row.lineIndex,
+          newLineText: newLineText
       });
   }
 
