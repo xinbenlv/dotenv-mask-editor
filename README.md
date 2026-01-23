@@ -40,4 +40,6 @@ Available through the VS Code Marketplace. Search for "Dotenv Mask Editor".
 
 ## License
 
-MIT
+MIT License
+
+Contributions are welcomed!
