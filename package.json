@@ -85,7 +85,7 @@
     "release": "npm run compile && npx --yes @vscode/vsce package && cursor --install-extension dotenv-mask-editor-1.1.0.vsix --force"
   },
   "devDependencies": {
-    "@types/node": "^18.0.0",
+    "@types/node": "^24.0.0",
     "@types/vscode": "^1.75.0",
     "@vscode/vsce": "^3.7.1",
     "typescript": "^5.0.0"
